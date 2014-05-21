@@ -5,17 +5,17 @@ Picture coming soon
 
 # Install Instructions
 
-1. ***[Download the Zip File](https://github.com/noxsicarius/WPDs-Action-Menu/archive/master.zip)***
+1. ***[Download the Zip File](https://github.com/noxsicarius/Custom-Actions-Menu/archive/master.zip)***
 	
 	> Recommended PBO tool for all "pack", "repack", or "unpack" steps: ***[PBO Manager](http://www.armaholic.com/page.php?id=16369)***
 
 1. Navigate to your MPMissions folder. If you rent a server log into your server via FTP or your host's File Manager, find, and download your MPMissions file.
  
-	> Note: "Your_Mission.pbo" is a placeholder name. Your mission might be called "DayZ_Epoch_11.Chernarus", "DayZ_Epoch_13.Tavi", or "dayz_mission" depending on hosting and chosen map.
+	> Note: "Your_Mission.pbo" is a place-holder name. Your mission might be called "DayZ_Epoch_11.Chernarus", "DayZ_Epoch_13.Tavi", or "dayz_mission" depending on hosting and chosen map.
 
 1. Extract the the project zip.
 1. Move the ***actions*** folder into the root of your mission folder.
-1. If you do not have a custom compiles and fn_selfFunctions.sqf do step (A). If you have a custom compiles.sqf do step (B).
+1. If you do not have a custom fn_selfActions.sqf do step (A). If you DO have a custom fn_selfActions.sqf do step (B).
 	   
 	> #### (A)
 
@@ -42,7 +42,7 @@ Picture coming soon
 
 	> #### (B)
 
-	> Open your custom ***fn_sselfActions.sqf***
+	> Open your custom ***fn_selfActions.sqf***
 
 	> Locate the following line of code:
 	> 	~~~~java
@@ -61,7 +61,7 @@ Picture coming soon
 	>	/*----------------- NoxSicarius' Custom Action Menu -------------------------------*/
 	> 	~~~~
 
-#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
+	#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
 
 1. Open ***actions\Actions_Menu.sqf*** and replace "111111111" near the top of the file with your player UID. 
 1. Locate your ***@DayZ_Epoch_Server/addons/dayz_server.pbo*** on your server host, download and unpack it, and open the resulting ***dayz_server*** folder.
