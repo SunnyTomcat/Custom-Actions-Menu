@@ -61,8 +61,9 @@ Picture coming soon
 	>	/*----------------- NoxSicarius' Custom Action Menu -------------------------------*/
 	> 	~~~~
 
-1. If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
+#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
 
+1. Open ***actions\Actions_Menu.sqf*** and replace "111111111" near the top of the file with your player UID. 
 1. Locate your ***@DayZ_Epoch_Server/addons/dayz_server.pbo*** on your server host, download and unpack it, and open the resulting ***dayz_server*** folder.
 1. Open ***init/server_functions.sqf*** and replace this:
 

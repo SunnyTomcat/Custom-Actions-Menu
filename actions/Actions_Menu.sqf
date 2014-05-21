@@ -3,18 +3,20 @@ _EXECscript1 = 'player execVM "'+_pathtoscripts+'%1"';
 _EXECscript2 = '["%1"] execVM "actions\FunMenu\morph.sqf"';
 _EXECscript3 = '["%1"] execVM "actions\FunMenu\movements.sqf"';
 
-/* 
-	If you use Nox's Epoch Admin Tools disregard AdminList code.
-	If you do not use that admin tool then replace 111111111 with
-	your UID if you want to use the Fun Menu.
-*/
+
 if(isNil "AdminList") then {
+/* 
+	If you use Nox's Epoch Admin Tools disregard AdminList/ModList code.
+	If you do not use that admin tool then replace 111111111 with
+	your UID if you want to use the Fun Menu transformation.
+*/
 	AdminList = [
 	"111111111",
+	"999999999",
 	"999999999"
 	];
 	ModList = [
-	"111111111",
+	"999999999",
 	"999999999"
 	];
 };
