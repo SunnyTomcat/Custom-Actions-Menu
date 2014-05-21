@@ -1,10 +1,11 @@
-private ["_mags","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir"];
+private ["_mags","_weapons","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir"];
 
 _mags = magazines player;
+_weapons = weapons player;
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
-if("PartGeneric" in _mags && "PartGeneric" in _mags && "PartWheel" in _mags && "PartWheel" in _mags) then {
+if("ItemToolbox" in _weapons && "PartGeneric" in _mags && "PartWheel" in _mags && "PartWheel" in _mags) then {
 	hasBikeItem = true;
 } else { 
 	hasBikeItem = false;
