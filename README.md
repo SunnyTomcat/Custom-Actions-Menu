@@ -55,7 +55,7 @@ Picture coming soon
 5. Repack the server pbo and upload it to your server. 
 
 
-####IF you are using special antihack add the following to your AHconfig.sqf
+####IF you are using an antihack other than BattlEye add the following to your AHconfig.sqf
 
 	~~~~java
 	,'#USER:ActionMenu','#USER:ActionsMenu','#USER:VehicleMenu','#USER:FunMenu','#USER:MovementMenu','#USER:TransformAnimalMenu'
