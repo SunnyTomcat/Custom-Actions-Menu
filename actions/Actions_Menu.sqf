@@ -21,9 +21,7 @@ if(isNil "AdminList") then {
 	];
 };
 
-allowFunMenu = true; // To disable fun menu make this false
-
-if(((getPlayerUID) in AdminList ||(getPlayerUID) in ModList) && allowFunMenu) then {
+if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 	// Admin and mod action menu
 	ActionMenu =
 	[
@@ -103,6 +101,7 @@ TransformAnimalMenu =
 	["Sheep", [], "", -5, [["expression", format[_EXECscript2,"Sheep"]]], "1", "1"],
 	["Wild Boar", [], "", -5, [["expression", format[_EXECscript2,"WildBoar"]]], "1", "1"],
 	["Cow (Black & White)", [], "", -5, [["expression", format[_EXECscript2,"Cow04"]]], "1", "1"],
+	["Human Survivor", [], "", -5, [["expression", format[_EXECscript2,"Survivor2_DZ"]]], "1", "1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
 		["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
 ];

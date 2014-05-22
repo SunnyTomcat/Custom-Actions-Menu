@@ -10,15 +10,15 @@
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
 <t size='1.1' shadow='1'align='left' color='#FFFFFF'>No camping traders for any reason</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
-<t size='1.1' shadow='1'align='left' color='#FFFFFF'>No stealing from locked vehicles in trader</t><br/>
+<t size='1.1' shadow='1'align='left' color='#FFFFFF'>No stealing from or destroying locked vehicles</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
 <t size='1.1' shadow='1'align='left' color='#FFFFFF'>No mic in side chat</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
 <t size='1.1' shadow='1'align='left' color='#FFFFFF'>Base raiding is allowed, just don't be a dick about it</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
-<t size='1.1' shadow='1'align='left' color='#FFFFFF'>Only ask for admins if absolutely needed</t><br/>
+<t size='1.1' shadow='1'align='left' color='#FFFFFF'>Only ask for admins if absolutely necessary</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
-<t size='1.1' shadow='1'align='left' color='#FFFFFF'>To get admin help ask in side or in TeamSpeak</t><br/>
+<t size='1.1' shadow='1'align='left' color='#FFFFFF'>To get admin help ask in side chat or in TeamSpeak</t><br/>
 <t size='.7' shadow='1'align='left' color='#FFFFFF'></t><br/>
 <t size='1.1' shadow='1'align='left' color='#FFFFFF'>Place TeamSpeak IP here</t><br/>
 "];

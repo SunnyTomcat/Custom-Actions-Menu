@@ -2,8 +2,10 @@ private ["_mags","_weapons","_canDo","_onLadder","_finished","_finishedTime","_v
 
 _mags = magazines player;
 _weapons = weapons player;
+_vehicle = vehicle player;
+_inVehicle = (_vehicle != player);
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
+_canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder && !_inVehicle);
 
 if("ItemToolbox" in _weapons && "PartGeneric" in _mags && "PartWheel" in _mags && "PartWheel" in _mags) then {
 	hasBikeItem = true;
@@ -70,5 +72,9 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "PartWheel";
 		player addMagazine "PartWheel";
 		cutText ["\n\nCanceled building a bike!", "PLAIN DOWN"];
+	};
+} else {
+	if(!_canDo) then {
+		cutText ["You are in a vehicle or already performing an action","PLAIN DOWN"];
 	};
 };

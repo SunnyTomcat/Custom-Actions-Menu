@@ -2,8 +2,9 @@ private ["_mags","_weapons","_canDo","_onLadder","_finished","_finishedTime","_v
 
 _mags = magazines player;
 _weapons = weapons player;
+_inVehicle = (_vehicle != player);
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
+_canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder && !_inVehicle);
 
 if("ItemToolbox" in _weapons && "PartGeneric" in _mags && "PartGeneric" in _mags && "PartEngine" in _mags && "ItemJerrycan" in _mags && "PartVRotor" in _mags) then {
 	hasMozzieItem = true;
@@ -71,5 +72,9 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "ItemJerrycan";
 		player addMagazine "PartVRotor";
 		cutText ["\n\nCanceled building a Mozzie.", "PLAIN DOWN"];
+	};
+} else {
+	if(!_canDo) then {
+		cutText ["You are in a vehicle or already performing an action","PLAIN DOWN"];
 	};
 };
