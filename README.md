@@ -15,51 +15,12 @@ Picture coming soon
 
 1. Extract the the project zip.
 1. Move the ***actions*** folder into the root of your mission folder.
-1. If you do not have a custom fn_selfActions.sqf do step (A). If you DO have a custom fn_selfActions.sqf do step (B).
-	   
-	> #### (A)
+1. Open the missions init.sqf and put the following at the bottom of the file:
 
-	> Move the custom folder into your MPMissions folder.
-	> Navigate to your mission's init.sqf file
-	> Find this line:
-
-	> 	~~~~java
-	> 	call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";
-	> 	~~~~
-
-	> And place this directly below it:
-
-	> 	~~~~java
-	> 	call compile preprocessFileLineNumbers "custom\compiles.sqf";
-	> 	~~~~
-
-	> It should now look like this:
-
-	> 	~~~~java
-	> 	call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";
-	> 	call compile preprocessFileLineNumbers "custom\compiles.sqf";
-	> 	~~~~
-
-	> #### (B)
-
-	> Open your custom ***fn_selfActions.sqf***
-
-	> Locate the following line of code:
-	> 	~~~~java
-	>	_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
-	>	~~~~
-	
-	>	And place this code below it:
-	> 	~~~~java
-	> 	/*----------------- NoxSicarius' Custom Action Menu -------------------------------*/
-	>	if(_canDo && !_inVehicle && !_isPZombie) then {
-	>		s_player_customAction = player addaction [ ("<t color=""#FE9A2E"">" + ("Action Menu") + "</t>"),"actions\Actions_menu.sqf","",6,false,true,"",""];
-	>	}else{
-	>		player removeAction s_player_customAction;
-	>		s_player_customAction = -1;
-	>	};
-	>	/*----------------- NoxSicarius' Custom Action Menu -------------------------------*/
-	> 	~~~~
+	~~~~java
+	// Nox's Custom Action Menu
+	[] execVM "actions\activate.sqf";
+	~~~~
 
 	#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
 
