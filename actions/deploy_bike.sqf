@@ -19,6 +19,7 @@ if (hasBikeItem && _canDo && dayz_combat == 1) then {
 };
 
 if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
+	DZE_ActionInProgress = true;
 	player removeMagazine "PartGeneric";
 	player removeMagazine "PartGeneric";
 	player removeMagazine "PartWheel";
@@ -61,6 +62,7 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 		clearWeaponCargoGlobal _veh;
 
 		cutText ["You have built a bike!", "PLAIN DOWN"];
+		DZE_ActionInProgress = false;
 		sleep 10;
 		cutText ["Warning: Spawned bikes DO NOT SAVE after server restart!", "PLAIN DOWN"];
 	} else {
@@ -72,6 +74,7 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "PartWheel";
 		player addMagazine "PartWheel";
 		cutText ["\n\nCanceled building a bike!", "PLAIN DOWN"];
+		DZE_ActionInProgress = false;
 	};
 } else {
 	if(!_canDo) then {

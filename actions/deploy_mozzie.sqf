@@ -18,6 +18,7 @@ if (hasMozzieItem && _canDo && dayz_combat == 1) then {
 };
 
 if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
+	DZE_ActionInProgress = true;
 	player removeMagazine "PartGeneric";
 	player removeMagazine "PartGeneric";
 	player removeMagazine "PartEngine";
@@ -60,6 +61,7 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 		clearWeaponCargoGlobal _veh;
 
 		cutText ["You've built a Mozzie!", "PLAIN DOWN"];
+		DZE_ActionInProgress = false;
 		sleep 10;
 		cutText ["Warning: Spawned Mozzies DO NOT SAVE after server restart!", "PLAIN DOWN"];
 	} else {
@@ -72,6 +74,7 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "ItemJerrycan";
 		player addMagazine "PartVRotor";
 		cutText ["\n\nCanceled building a Mozzie.", "PLAIN DOWN"];
+		DZE_ActionInProgress = false;
 	};
 } else {
 	if(!_canDo) then {

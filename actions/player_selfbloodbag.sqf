@@ -23,10 +23,10 @@ _inCombat = if (_timeout >= diag_tickTime) then { true } else { false };
 
 if("ItemBloodbag" in _mags) then {
 	hasBagItem = true;
-	}else {
+}else {
 	hasBagItem = false;
 	cutText [format ["\n\nYou need a blood bag to perform this action"], "PLAIN DOWN"];
-	};
+};
 	
 if((speed player <= 1) && hasBagItem && _canDo) then {
 
@@ -37,8 +37,6 @@ if((speed player <= 1) && hasBagItem && _canDo) then {
 	if (_inCombat) then { // Check if in combat
 		cutText [format["You are in Combat and cannot give yourself a Bloodbag"], "PLAIN DOWN"]; //display text at bottom center of screen when in combat
 	} else {
-
-		player removeAction s_player_selfBloodbag; //remove the action from users scroll menu
 		
 		player playActionNow "Medic"; //play bloodbag animation
 		
