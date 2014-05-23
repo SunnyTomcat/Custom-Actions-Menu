@@ -60,6 +60,7 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 		_veh setVariable ["MalSar",1,true];
 		clearMagazineCargoGlobal _veh;
 		clearWeaponCargoGlobal _veh;
+		_veh setVehicleAmmo 0;
 
 		cutText ["You've built a Mozzie!", "PLAIN DOWN"];
 		DZE_ActionInProgress = false;
