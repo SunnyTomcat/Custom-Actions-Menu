@@ -1,16 +1,17 @@
-private ["_mags","_weapons","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir"];
+private ["_mags","_scrapNumber","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir","_pos","_dist","_location","_worldspace","_charID"];
 
 _mags = magazines player;
-_weapons = weapons player;
+_vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder && !_inVehicle);
+_scrapNumber = {_x == "PartGeneric";} count _mags; // must return 2 or more
 
-if("ItemToolbox" in _weapons && "PartGeneric" in _mags && "PartGeneric" in _mags && "PartEngine" in _mags && "ItemJerrycan" in _mags && "PartVRotor" in _mags) then {
+if(_scrapNumber > 1 && "PartEngine" in _mags && "ItemJerrycan" in _mags && "PartVRotor" in _mags) then {
 	hasMozzieItem = true;
 } else { 
 	hasMozzieItem = false;
-	cutText ["\n\n2x Scrap Metal, 1x Engine, 1x VRotor, and 1x Jerrycan required to build mozzie", "PLAIN DOWN"];
+	cutText ["\n\nNeed: 2x Scrap Metal, 1x Engine, 1x VRotor, and 1x Jerrycan required to build mozzie", "PLAIN DOWN"];
 };
 
 if (hasMozzieItem && _canDo && dayz_combat == 1) then {
@@ -48,11 +49,11 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 
 	if (_finished) then {
 		_vehtospawn = "CSJ_GyroC";
-		_dist = 10;
+		_dist = 8;
 		_charID = dayz_characterID;
 		_dir = getDir vehicle player;
 		_pos = getPosATL vehicle player;
-		_pos = [(_pos select 0)+_dist*sin(_dir),(_pos select 1)+_dist*cos(_dir),0];
+		_pos = [(_pos select 0)+_dist * sin(_dir),(_pos select 1)+ _dist * cos(_dir),0];
 		_worldspace = [_dir,_pos];
 		_location = _pos; 
 		_veh = createVehicle [_vehtospawn, _pos, [], 0, "CAN_COLLIDE"];
@@ -73,8 +74,8 @@ if (hasMozzieItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "PartEngine";
 		player addMagazine "ItemJerrycan";
 		player addMagazine "PartVRotor";
-		cutText ["\n\nCanceled building a Mozzie.", "PLAIN DOWN"];
 		DZE_ActionInProgress = false;
+		cutText ["\n\nCanceled building a Mozzie.", "PLAIN DOWN"];
 	};
 } else {
 	if(!_canDo) then {

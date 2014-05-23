@@ -1,17 +1,17 @@
-private ["_mags","_weapons","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir"];
+private ["_mags","_wheelNumber","_canDo","_onLadder","_finished","_finishedTime","_veh","_location","_vehtospawn","_dir","_pos","_dist","_location","_worldspace","_charID"];
 
 _mags = magazines player;
-_weapons = weapons player;
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder && !_inVehicle);
+_wheelNumber = {_x == "PartWheel";} count _mags; // must return 2 or more
 
-if("ItemToolbox" in _weapons && "PartGeneric" in _mags && "PartWheel" in _mags && "PartWheel" in _mags) then {
+if("PartGeneric" in _mags && _wheelNumber > 1) then {
 	hasBikeItem = true;
 } else { 
 	hasBikeItem = false;
-	cutText ["\n\n2x scrap metal and 2x wheels required to build bike", "PLAIN DOWN"];
+	cutText ["\n\nNeed: 1x scrap metal and 2x wheels required to build bike", "PLAIN DOWN"];
 };
 
 if (hasBikeItem && _canDo && dayz_combat == 1) then {
@@ -20,7 +20,6 @@ if (hasBikeItem && _canDo && dayz_combat == 1) then {
 
 if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 	DZE_ActionInProgress = true;
-	player removeMagazine "PartGeneric";
 	player removeMagazine "PartGeneric";
 	player removeMagazine "PartWheel";
 	player removeMagazine "PartWheel";
@@ -47,8 +46,8 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 	};
 
 	if (_finished) then {
-		_vehtospawn = "Old_bike_TK_CIV_EP1"
-		_dist = 10;
+		_vehtospawn = "Old_bike_TK_CIV_EP1";
+		_dist = 6;
 		_charID = dayz_characterID;
 		_dir = getDir vehicle player;
 		_pos = getPosATL vehicle player;
@@ -73,8 +72,8 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 		player addMagazine "PartGeneric";
 		player addMagazine "PartWheel";
 		player addMagazine "PartWheel";
-		cutText ["\n\nCanceled building a bike!", "PLAIN DOWN"];
 		DZE_ActionInProgress = false;
+		cutText ["\n\nCanceled building a bike!", "PLAIN DOWN"];
 	};
 } else {
 	if(!_canDo) then {
