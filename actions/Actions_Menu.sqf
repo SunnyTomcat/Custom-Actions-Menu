@@ -1,3 +1,13 @@
+/*
+	If you wish to disable options simply place a // infront of the menu you wish to disable.
+	For example to disable the Fun Menu below change this:
+	["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
+	
+	to this:
+	//["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
+	
+*/
+
 _pathtoscripts = "actions\";
 _EXECscript1 = 'player execVM "'+_pathtoscripts+'%1"';
 _EXECscript2 = '["%1"] execVM "actions\FunMenu\morph.sqf"';
@@ -22,19 +32,28 @@ if(isNil "AdminList") then {
 };
 
 if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
-	// Admin and mod action menu
+
+	/*
+		This menu is for the Admins or Mods listed above OR in the Epoch Admin Tools.
+		To make this menu the same as what normal players get put a // in front of the fun menu
+		and then remove the // from infront of the movement menu below.
+	*/
+	
 	ActionMenu =
 	[
 		["",true],
 		["Action Menu >>", [], "#USER:ActionsMenu", -5, [["expression", ""]], "1", "1"],
 		["Deploy Menu >>", [], "#USER:VehicleMenu", -5, [["expression", ""]], "1", "1"],
 		["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
+		//["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
 		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"server_rules.sqf"]]], "1", "1"],
 			["", [], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
 	];
 } else {
-	// Normal player action menu
+
+	// This menu is for normal players only. If you have an admin listed, they will use the menu above.
+
 	ActionMenu =
 	[
 		["",true],

@@ -22,6 +22,8 @@ Picture coming soon
 	[] execVM "actions\activate.sqf";
 	~~~~
 
+1. If you use the transformations menu you will loose ALL gear you have on. To return to human simply choose the human survivor option in the transform menu.
+
 	#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
 
 1. Open ***actions\Actions_Menu.sqf*** and replace "111111111" near the top of the file with your player UID. 
