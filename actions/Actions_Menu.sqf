@@ -72,7 +72,7 @@ FunMenu =
 	["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
 	["Transform Animal >>",[],"#USER:TransformAnimalMenu", -5,[["expression",""]],"1","1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
+		["Main Menu", [20], "#USER:ActionMenu", -5, [["expression", ""]], "1", "1"]
 ];
 
 MovementMenu =
@@ -87,7 +87,7 @@ MovementMenu =
 	["Squat",[],"", -5,[["expression",format[_EXECscript3,"AmovPercMstpSnonWnonDnon_exercisekneeBendA"]]],"1","1"],
 	["HandStand",[],"", -5,[["expression",format[_EXECscript3,"AmovPercMstpSnonWnonDnon_idle70chozeniPoRukou"]]],"1","1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
+		["Main Menu", [20], "#USER:ActionMenu", -5, [["expression", ""]], "1", "1"]
 ];
 
 TransformAnimalMenu =
@@ -104,6 +104,6 @@ TransformAnimalMenu =
 	["Zombie", [], "", -5, [["expression", format[_EXECscript2,"PZombie_VB"]]], "1", "1"],
 	["Human Survivor", [], "", -5, [["expression", format[_EXECscript2,"Survivor2_DZ"]]], "1", "1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
+		["Main Menu", [20], "#USER:ActionMenu", -5, [["expression", ""]], "1", "1"]
 ];
 showCommandingMenu "#USER:ActionMenu";
