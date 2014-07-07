@@ -59,6 +59,5 @@ Picture coming soon
 
 ####IF you are using an antihack other than BattlEye add the following to your AHconfig.sqf
 
-    ~~~~java
-    ,'#USER:ActionMenu','#USER:ActionsMenu','#USER:VehicleMenu','#USER:FunMenu','#USER:MovementMenu','#USER:TransformAnimalMenu','#USER:DamiSpawn'
-    ~~~~
+,'#USER:ActionMenu','#USER:ActionsMenu','#USER:VehicleMenu','#USER:FunMenu','#USER:MovementMenu','#USER:TransformAnimalMenu','#USER:DamiSpawn'
+
