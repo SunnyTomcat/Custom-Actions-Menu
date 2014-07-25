@@ -11,7 +11,7 @@ if(_scrapNumber > 1 && "PartEngine" in _mags && "ItemJerrycan" in _mags && "Part
 	hasMozzieItem = true;
 } else { 
 	hasMozzieItem = false;
-	cutText ["\n\nNeed: 2x Scrap Metal, 1x Engine, 1x VRotor, and 1x Jerrycan required to build mozzie", "PLAIN DOWN"];
+	cutText ["\n\nNeed: 2x Scrap Metal, 1x Engine Parts, 1x Main Rotor Assembly, and 1x Jerrycan required to build mozzie", "PLAIN DOWN"];
 };
 
 if (hasMozzieItem && _canDo && dayz_combat == 1) then {
