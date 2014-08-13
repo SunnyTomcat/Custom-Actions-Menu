@@ -69,7 +69,6 @@ if (hasBikeItem && _canDo && (dayz_combat !=1)) then {
 		player switchMove "";
 		player playActionNow "stop";
 		player addMagazine "PartGeneric";
-		player addMagazine "PartGeneric";
 		player addMagazine "PartWheel";
 		player addMagazine "PartWheel";
 		DZE_ActionInProgress = false;
