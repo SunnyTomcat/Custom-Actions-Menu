@@ -5,7 +5,6 @@
 	
 	to this:
 	//["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
-	
 */
 
 _pathtoscripts = "actions\";
@@ -57,7 +56,7 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 	[
 		["",true],
 		["Action Menu >>", [], "#USER:ActionsMenu", -5, [["expression", ""]], "1", "1"],
-		["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
+		if(AllowMovementMenu) then {["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"]},
 		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"serverRules.sqf"]]], "1", "1"],
 		//["Contact an admin", [], "", -5, [["expression", format[_EXECscript1,"contactAdmin.sqf"]]], "1", "1"],
 			["", [], "", -5, [["expression", ""]], "1", "0"],
@@ -68,12 +67,12 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 ActionsMenu =
 [
 	["",true],
-	["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deployBike.sqf"]]], "1", "1"],
-	["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deployMozzie.sqf"]]], "1", "1"],
+	if(AllowBuildBike) then {["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deployBike.sqf"]]], "1", "1"]},
+	if(AllowBuildMozzie) then {["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deployMozzie.sqf"]]], "1", "1"]},
 	if(AllowPackBike) then {["Pack Bike", [], "", -5, [["expression", format[_EXECscript1,"packBike.sqf"]]], "1", "1"]},
 	if(AllowPackMozzie) then {["Pack Mozzie", [], "", -5, [["expression", format[_EXECscript1,"packMozzie.sqf"]]], "1", "1"]},
-	["Flip Vehicle", [], "", -5, [["expression", format[_EXECscript1,"flipVehicle.sqf"]]], "1", "1"],
-	["Suicide", [], "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
+	if(AllowFlipVehichle) then {["Flip Vehicle", [], "", -5, [["expression", format[_EXECscript1,"flipVehicle.sqf"]]], "1", "1"]},
+	if(AllowSuicide) then {["Suicide", [], "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"]},
 		["", [], "", -5, [["expression", ""]], "1", "0"],
 		["Exit", [20], "", -5, [["expression", ""]], "1", "1"]
 ];
