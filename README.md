@@ -19,14 +19,16 @@ Picture coming soon
 
 	~~~~java
 	// Nox's Custom Action Menu
-	[] execVM "actions\activate.sqf";
+	[] execVM "actions\config.sqf"; // Read config
+	[] execVM "actions\activate.sqf"; // Sttart action menu
 	~~~~
 
 1. If you use the transformations menu you will loose ALL gear you have on. To return to human simply choose the human survivor option in the transform menu.
 
 	#### If you use my Epoch Admin Tools then skip the remaining steps. Otherwise, continue.
 
-1. Open ***actions\Actions_Menu.sqf*** and replace "111111111" near the top of the file with your player UID. 
+1. Open ***actions\config.sqf***
+1. Set the configurations to your liking and replace "111111111" near the top of the file with your player UID.
 1. Locate your ***@DayZ_Epoch_Server/addons/dayz_server.pbo*** on your server host, download and unpack it, and open the resulting ***dayz_server*** folder.
 1. Open ***init/server_functions.sqf*** and replace this:
 
@@ -59,6 +61,6 @@ Picture coming soon
 
 ####IF you are using an antihack other than BattlEye add the following to your AHconfig.sqf
 
-	~~~~java
-	,'#USER:ActionMenu','#USER:ActionsMenu','#USER:VehicleMenu','#USER:FunMenu','#USER:MovementMenu','#USER:TransformAnimalMenu','#USER:DamiSpawn'
-	~~~~
+~~~~java
+,'#USER:ActionMenu','#USER:ActionsMenu','#USER:VehicleMenu','#USER:FunMenu','#USER:MovementMenu','#USER:TransformAnimalMenu','#USER:DamiSpawn'
+~~~~

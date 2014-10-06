@@ -43,12 +43,11 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 	[
 		["",true],
 		["Action Menu >>", [], "#USER:ActionsMenu", -5, [["expression", ""]], "1", "1"],
-		["Deploy Menu >>", [], "#USER:VehicleMenu", -5, [["expression", ""]], "1", "1"],
 		["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
 		//["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
-		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"server_rules.sqf"]]], "1", "1"],
+		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"serverRules.sqf"]]], "1", "1"],
 			["", [], "", -5, [["expression", ""]], "1", "0"],
-			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
+			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]
 	];
 } else {
 
@@ -58,31 +57,25 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 	[
 		["",true],
 		["Action Menu >>", [], "#USER:ActionsMenu", -5, [["expression", ""]], "1", "1"],
-		["Deploy Menu >>", [], "#USER:VehicleMenu", -5, [["expression", ""]], "1", "1"],
 		["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
-		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"server_rules.sqf"]]], "1", "1"],
+		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"serverRules.sqf"]]], "1", "1"],
+		//["Contact an admin", [], "", -5, [["expression", format[_EXECscript1,"contactAdmin.sqf"]]], "1", "1"],
 			["", [], "", -5, [["expression", ""]], "1", "0"],
-			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
+			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]
 	];
 };
 
 ActionsMenu =
 [
 	["",true],
-	["Self Bloodbag", [], "", -5, [["expression", format[_EXECscript1,"player_selfbloodbag.sqf"]]], "1", "1"],
-	["Flip Vehicle", [], "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
-	["Suicide", [], "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],	
+	["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deployBike.sqf"]]], "1", "1"],
+	["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deployMozzie.sqf"]]], "1", "1"],
+	if(AllowPackBike) then {["Pack Bike", [], "", -5, [["expression", format[_EXECscript1,"packBike.sqf"]]], "1", "1"]},
+	if(AllowPackMozzie) then {["Pack Mozzie", [], "", -5, [["expression", format[_EXECscript1,"packMozzie.sqf"]]], "1", "1"]},
+	["Flip Vehicle", [], "", -5, [["expression", format[_EXECscript1,"flipVehicle.sqf"]]], "1", "1"],
+	["Suicide", [], "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
-];
-
-VehicleMenu =
-[
-	["",true],
-	["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deploy_bike.sqf"]]], "1", "1"],
-	["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deploy_mozzie.sqf"]]], "1", "1"],
-		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
+		["Exit", [20], "", -5, [["expression", ""]], "1", "1"]
 ];
 
 FunMenu =
