@@ -13,27 +13,10 @@ _EXECscript2 = '["%1"] execVM "actions\FunMenu\morph.sqf"';
 _EXECscript3 = '["%1"] execVM "actions\FunMenu\movements.sqf"';
 
 
-if(isNil "AdminList") then {
-/* 
-	If you use Nox's Epoch Admin Tools disregard AdminList/ModList code.
-	If you do not use that admin tool then replace 111111111 with
-	your UID if you want to use the Fun Menu transformation.
-*/
-	AdminList = [
-	"111111111",
-	"999999999",
-	"999999999"
-	];
-	ModList = [
-	"999999999",
-	"999999999"
-	];
-};
-
 if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 
 	/*
-		This menu is for the Admins or Mods listed above OR in the Epoch Admin Tools.
+		This menu is for the Admins or Mods listed in the config OR in the Epoch Admin Tools.
 		To make this menu the same as what normal players get put a // in front of the fun menu
 		and then remove the // from infront of the movement menu below.
 	*/
