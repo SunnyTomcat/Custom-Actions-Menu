@@ -1,21 +1,3 @@
-/* 
-	If you use Nox's Epoch Admin Tools disregard the below if(isNil....) 
-	block of code. If you do not use that admin tool then replace 
-	111111111 with your UID if you want to use the Fun Menu transformation.
-	If you do not want to use the transformations then skip this
-*/
-if(isNil "AdminList") then {
-	AdminList = [
-	"111111111",
-	"999999999",
-	"999999999"
-	];
-	ModList = [
-	"999999999",
-	"999999999"
-	];
-};
-
 
 /****** Bike variables ******/
 
