@@ -7,33 +7,15 @@
 	//["Fun Menu >>", [], "#USER:FunMenu", -5, [["expression", ""]], "1", "1"],
 */
 
-_pathtoscripts = "actions\";
+_pathtoscripts = "admintools\actionMenu\";
 _EXECscript1 = 'player execVM "'+_pathtoscripts+'%1"';
-_EXECscript2 = '["%1"] execVM "actions\FunMenu\morph.sqf"';
-_EXECscript3 = '["%1"] execVM "actions\FunMenu\movements.sqf"';
-
-
-if(isNil "AdminList") then {
-/* 
-	If you use Nox's Epoch Admin Tools disregard AdminList/ModList code.
-	If you do not use that admin tool then replace 111111111 with
-	your UID if you want to use the Fun Menu transformation.
-*/
-	AdminList = [
-	"111111111",
-	"999999999",
-	"999999999"
-	];
-	ModList = [
-	"999999999",
-	"999999999"
-	];
-};
+_EXECscript2 = '["%1"] execVM "admintools\actionMenu\FunMenu\morph.sqf"';
+_EXECscript3 = '["%1"] execVM "admintools\actionMenu\FunMenu\movements.sqf"';
 
 if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 
 	/*
-		This menu is for the Admins or Mods listed above OR in the Epoch Admin Tools.
+		This menu is for the Admins or Mods listed in the Epoch Admin Tools.
 		To make this menu the same as what normal players get put a // in front of the fun menu
 		and then remove the // from infront of the movement menu below.
 	*/
@@ -58,7 +40,7 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 		["Action Menu >>", [], "#USER:ActionsMenu", -5, [["expression", ""]], "1", "1"],
 		if(AllowMovementMenu) then {["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"]},
 		["Server Rules", [], "", -5, [["expression", format[_EXECscript1,"serverRules.sqf"]]], "1", "1"],
-		//["Contact an admin", [], "", -5, [["expression", format[_EXECscript1,"contactAdmin.sqf"]]], "1", "1"],
+		["Contact an admin", [], "", -5, [["expression", format[_EXECscript1,"contactAdmin.sqf"]]], "1", "1"],
 			["", [], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [20], "", -5, [["expression", ""]], "1", "1"]
 	];
