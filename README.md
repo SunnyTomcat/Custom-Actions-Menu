@@ -31,27 +31,29 @@ Picture coming soon
 1. Open ***init/server_functions.sqf*** and replace this:
 
     ~~~~java
-        if(vehicle _x != _x && !(vehicle _x in PVDZE_serverObjectMonitor) && (isPlayer _x)  && !((typeOf vehicle _x) in DZE_safeVehicle)) then {
+		if (vehicle _x != _x && !(vehicle _x in dayz_serverObjectMonitor) && !((typeOf vehicle _x) in DZE_safeVehicle)) then {
     ~~~~
     
 	...with this:
 
     ~~~~java
-        if(vehicle _x != _x && !(vehicle _x in PVDZE_serverObjectMonitor) && (isPlayer _x)  && !((typeOf vehicle _x) in DZE_safeVehicle) && (vehicle _x getVariable ["MalSar",0] !=1)) then {
+		if (vehicle _x != _x && !(vehicle _x in dayz_serverObjectMonitor) && !((typeOf vehicle _x) in DZE_safeVehicle) && (vehicle _x getVariable ["CAM_Veh",0] !=1)) then {
     ~~~~
     
 	> Note: This step may not work well if you use other mods that modify this operator. The important code to fit into this operator is `(vehicle _x getVariable ["MalSar",0] !=1)` which can be added easily with a rudimentary knowledge of programming.
 
 	1. Now open your ***compile/server_updateObject.sqf***
 	Locat this code:
+	
     ~~~~java
-    if (!_parachuteWest and !(locked _object)) then {
+		_objectID = _object getVariable ["ObjectID","0"];
     ~~~~
-
-	And place the following code directly ABOVE it:
+	
+	Place the following directly ABOVE it.
+	
     ~~~~java
-    // Epoch Admin Tools
-    if (_object getVariable "MalSar" == 1) exitWith {};
+		// Epoch Admin Tools
+		if (_object getVariable ["CAM_Veh",0] == 1) exitWith {};
     ~~~~
 
 5. Repack the server pbo and upload it to your server. 
