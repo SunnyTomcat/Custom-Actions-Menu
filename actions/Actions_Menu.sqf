@@ -15,10 +15,8 @@ _EXECscript3 = '["%1"] execVM "actions\FunMenu\movements.sqf"';
 
 
 if(isNil "AdminList") then {
-/* 
-	If you use Nox's Epoch Admin Tools disregard AdminList/ModList code.
-	If you do not use that admin tool then replace 111111111 with
-	your UID if you want to use the Fun Menu transformation.
+/*
+	Replace 111111111 with your UID if you want to use the Fun Menu transformation.
 */
 	AdminList = [
 	"111111111",
@@ -69,7 +67,6 @@ if((getPlayerUID player) in AdminList ||(getPlayerUID player) in ModList) then {
 ActionsMenu =
 [
 	["",true],
-	["Self Bloodbag", [], "", -5, [["expression", format[_EXECscript1,"player_selfbloodbag.sqf"]]], "1", "1"],
 	["Flip Vehicle", [], "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
 	["Suicide", [], "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],	
 		["", [], "", -5, [["expression", ""]], "1", "0"],
@@ -79,8 +76,10 @@ ActionsMenu =
 VehicleMenu =
 [
 	["",true],
-	["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deploy_bike.sqf"]]], "1", "1"],
-	["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deploy_mozzie.sqf"]]], "1", "1"],
+	["Build Bike", [], "", -5, [["expression", format[_EXECscript1,"deployBike.sqf"]]], "1", "1"],
+	["Build Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"deployMozzie.sqf"]]], "1", "1"],
+	["Pack Bike", [],  "", -5, [["expression", format[_EXECscript1,"packBike.sqf"]]], "1", "1"],
+	["Pack Mozzie", [],  "", -5, [["expression", format[_EXECscript1,"packMozzie.sqf"]]], "1", "1"],
 		["", [], "", -5, [["expression", ""]], "1", "0"],
 		["Exit", [20], "", -5, [["expression", ""]], "1", "1"]		
 ];

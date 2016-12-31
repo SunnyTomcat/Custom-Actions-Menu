@@ -28,7 +28,7 @@ Picture coming soon
 
 1. Open ***actions\Actions_Menu.sqf*** and replace "111111111" near the top of the file with your player UID. 
 1. Locate your ***@DayZ_Epoch_Server/addons/dayz_server.pbo*** on your server host, download and unpack it, and open the resulting ***dayz_server*** folder.
-1. Open ***init/server_functions.sqf*** and replace this:
+1. Open ***system/scheduler/sched_safetyVehicle.sqf*** and replace this:
 
     ~~~~java
 		if (vehicle _x != _x && !(vehicle _x in dayz_serverObjectMonitor) && !((typeOf vehicle _x) in DZE_safeVehicle)) then {
@@ -42,8 +42,7 @@ Picture coming soon
     
 	> Note: This step may not work well if you use other mods that modify this operator. The important code to fit into this operator is `(vehicle _x getVariable ["MalSar",0] !=1)` which can be added easily with a rudimentary knowledge of programming.
 
-	1. Now open your ***compile/server_updateObject.sqf***
-	Locat this code:
+1. Now open your ***compile/server_updateObject.sqf*** and find:
 	
     ~~~~java
 		_objectID = _object getVariable ["ObjectID","0"];
